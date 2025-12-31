@@ -16,18 +16,20 @@
 
 package org.lineageos.popupcamera;
 
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.app.DialogFragment;
+import android.content.SharedPreferences;
 import android.os.Bundle;
-
-import androidx.appcompat.app.AlertDialog;
 import androidx.preference.Preference;
 import androidx.preference.Preference.OnPreferenceChangeListener;
 import androidx.preference.Preference.OnPreferenceClickListener;
-
-import com.android.settingslib.widget.SettingsBasePreferenceFragment;
+import androidx.preference.PreferenceFragment;
 
 import org.lineageos.popupcamera.R;
 
-public class PopupCameraSettingsFragment extends SettingsBasePreferenceFragment
+public class PopupCameraSettingsFragment extends PreferenceFragment
         implements OnPreferenceChangeListener, OnPreferenceClickListener {
     private Preference mCalibrationPreference;
     private static final String MOTOR_CALIBRATION_KEY = "motor_calibration";
@@ -36,7 +38,7 @@ public class PopupCameraSettingsFragment extends SettingsBasePreferenceFragment
 
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
-        setPreferencesFromResource(R.xml.popup_settings, rootKey);
+        addPreferencesFromResource(R.xml.popup_settings);
 
         mCalibrationPreference = (Preference) findPreference(MOTOR_CALIBRATION_KEY);
         mCalibrationPreference.setOnPreferenceClickListener(this);

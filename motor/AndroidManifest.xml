@@ -26,8 +26,7 @@
 
     <application
         android:label="@string/device_settings_app_name"
-        android:persistent="true"
-        android:theme="@style/Theme.SubSettingsBase.Expressive">
+        android:persistent="true">
 
         <receiver android:name=".BootCompletedReceiver"
                   android:exported="false">
@@ -44,7 +43,8 @@
         <activity
             android:name=".PopupCameraSettingsActivity"
             android:exported="false"
-            android:label="@string/popup_title">
+            android:label="@string/popup_title"
+            android:theme="@style/Theme.SubSettingsBase">
             <intent-filter>
                 <action android:name="com.android.settings.action.IA_SETTINGS" />
             </intent-filter>
